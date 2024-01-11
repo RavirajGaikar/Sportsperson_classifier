@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  <script src="./app.js"></script>
+</head>
+<!--Command(Ignore this)-->
+<!--npx tailwindcss -i ./src/input.css -o ./dist/style.css --watch-->
+<body class="h-[100vh]">
+
+  <nav class="bg-[rgba(230,248,243,0.9)] text-[30px] text-black grid text-center items-center h-[60px]">
+    Indian Sports Person Image Classifier
+  </nav>
+  <div class="pt-[30px] p-[200px]">
+    <div class="grid grid-cols-5 gap-3">
+      <div id="mahendra_dhoni">
+        <img class=" mx-auto rounded-full object-cover h-[150px] w-[150px]" src="https://kmb.kerala.gov.in/ckeditor/samples/fonts/wp-content/uploads/2024/01/ms-dhoni-information_bd94d0acf.jpg" alt="Celebrity_image_1"/>
+        <h2 class="text-center font-semibold px-1 text-[20px]">M.S Dhoni</h2>
+      </div>
+      <div id="virat_kohli">
+        <img class=" mx-auto rounded-full object-cover h-[150px] w-[150px]" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcR1h65X6WJgJLQX__Ji0g_l7lykHKgX2h9afpJHIvey6H-7-4S_ZYWAdW9LcbZ47tVFbEBpo46kWm0huBs" alt="Celebrity_image_2"/>
+        <h2 class="text-center font-semibold px-1 text-[20px]">Virat Kohli</h2>
+      </div>
+      <div id="pv_sindhu">
+        <img class=" mx-auto rounded-full object-cover h-[150px] w-[150px]" src="https://media.licdn.com/dms/image/D5603AQE70gyOeYiRGA/profile-displayphoto-shrink_800_800/0/1687609643608?e=1710374400&v=beta&t=SB51OTSTsUrb79z2rK5fSCawkv9J_wVHQTCgN8NfyCc" alt="Celebrity_image_3"/>
+        <h2 class="text-center font-semibold px-1 text-[20px]">P.V. Sindhu</h2>
+      </div>
+      <div id="neeraj_chopra">
+        <img class=" mx-auto rounded-full object-cover h-[150px] w-[150px]" src="https://img.olympics.com/images/image/private/t_s_w1340/t_s_16_9_g_auto/f_auto/primary/qpr4zk5ybnwg0gpmuctd" alt="Celebrity_image_4"/>
+        <h2 class="text-center font-semibold px-1 text-[20px]">Neeraj Chopra</h2>
+      </div>
+      <div id="smriti_mandana">
+        <img class=" mx-auto rounded-full object-cover h-[150px] w-[150px]" style="object-position: 20% 0%;" src="https://thehindustangazette.com/wp-content/uploads/2022/01/Smriti-Mandhana-696x771.jpg" alt="Celebrity_image_5"/>
+        <h2 class="text-center font-semibold px-1 text-[20px]">Smriti Mandhana</h2>
+      </div>
+    </div>
+    <div class="mt-[40px] flex justify-between">
+      <div class=" text-center grow-0">
+        <form action="/file-upload" class="border-dashed border-2 border-gray-500 p-4 text-center max-h-[217px] overflow-hidden max-w-[270px] break-words" id="dropzone">
+            <p class="pointer-events-none">Drop files here or click to upload</p>
+        </form>
+        <button class="bg-green-500 rounded-[10px] text-white mt-[10px] p-[7px]" id="submitBtn">Classify</button>    
+      </div>
+      <!--When Classifier is unable to classify Image-->
+      <div id="error" class="h-[200px] w-[400px] grid place-items-center">
+        <p class="font-semibold  text-justify">Can't classify image.<br>-Try Different Image with proper eyes and whole face visible<br>-The image is not of above individuals</p>
+      </div>
+      <!--Name and Photo will be displayed here-->
+      <div class="h-[200px] grid place-items-center">
+        <div id="resultHolder"></div>
+      </div>
+      <!--Info will be displayed here-->
+      <div class="grid place-items-center h-[200px]" id="divClassTable">
+        <table class="max-w-[350px] text-justify rounded-[10px]" style="box-shadow:0 0 20px rgba(0, 0, 0, 0.15);font-family: sans-serif">
+          <tr>
+            <th class="bg-[#009879] rounded-t-[10px] text-white pt-[5px] text-[20px] pl-[15px]" id="player_name"></th>
+          </tr>
+          <tr class="">
+            <td class="p-[15px]" id="player_info"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
